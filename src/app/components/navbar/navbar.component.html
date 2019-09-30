@@ -1,4 +1,4 @@
-<!--Login modal popup-->
+<!--Login modal popup
 <div id="logInPopup" class="modal">
     <div class="modal-content animate">
         <div class="card rounded-0">
@@ -8,85 +8,80 @@
                 <h3>Login</h3>
             </div>
             <div class="card-body">
-                <form class="form">
-                   
-
-                        <select class="form-control" [(ngModel)]="loginUserData.role" name="role">
-                            <option value="trainer">Trainer</option>
-                            <option value="learner">Learner</option>
-                        </select>
-
-                        <input [(ngModel)]="loginUserData.email" type="text" placeholder="email" class="form-control" name="email" required>
-
-
-                        <input [(ngModel)]="loginUserData.password" type="password" placeholder="Password" class="form-control" name="password" required>
-
-
-                        <label>
-                            <input type="checkbox" checked name="remember" [(ngModel)]="loginUserData.rememberMe" name="rememberMe"> Remember me
-                        </label>
-
-                    
-
-                    <div class="card-footer">
-                        <div class="form-group">
-                            <input type="button" class="btn btn-success" value="Log In"
-                               (click)="loginUser()">
-                            <span>Forgot password? Click <a href="#" id="passwordHelp">here</a></span>
-                        </div>
+                <form (ngSubmit)="loginUser()" #form1="ngForm">
+                    <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" [(ngModel)]="email" name="email" #email_ref="ngModel" required
+                            placeholder="Enter Email Id" class="form-control">
+                        <span *ngIf="email_ref.invalid && email_ref.dirty">
+                            <span *ngIf="email_ref.errors.required" class="error"><small> Field is required </small></span>
+                        </span>
                     </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" [(ngModel)]="password" name="password" #password_ref="ngModel" required
+                            placeholder="Enter Password" class="form-control">
+                        <span *ngIf="password_ref.invalid && password_ref.dirty">
+                            <span *ngIf="password_ref.errors.required" class="error"><small> Field is required </small></span>
+                        </span>
+                    </div>
+                    <button [disabled]="!form1.form.valid" class="btn btn-success">Login</button>
                 </form>
+                <div>
+                    <h3 class="error">{{errorMessage}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<!--Register modal popup-->
+<div id="regPopup" class="modal">
+    <div class="modal-content animate">
+        <div class="container-fluid">
+            <h3>Sign Up</h3>
+            <span onclick="document.getElementById('regPopup').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <input type="button" class="btn" value="Trainer" [routerLink]="['/trainer-register']"
+                        onclick="document.getElementById('regPopup').style.display='none'">
+
+                    <input type="button" class="btn" value="Learner" [routerLink]="['/learner-register']"
+                        onclick="document.getElementById('regPopup').style.display='none'">
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<!--navbar-->
+<nav class="navbar navbar-expand-lg navbar-fixed bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">MEAN App</a>
+        <div class="collapse navbar-collapse">
 
-    <!--Register modal popup-->
-    <div id="regPopup" class="modal">
-        <div class="modal-content animate">
-            <div class="container-fluid">
-                <h3>Sign Up</h3>
-                <span onclick="document.getElementById('regPopup').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-            </div>
+            <ul class="navbar-nav ml-auto navbar-right">
+                <li>
+                    <input type="button" class="btn mr-3 btn-info"
+                        routerLink='/login' value="Log In">
+                </li>
+                <li>
+                    <input type="button" class="btn btn-info"
+                        routerLink='/register' value="Register">
+                </li>
 
-            <div class="container">
-                <div class="card">
-                    <div class="card-body">
-                        <input type="button" class="btn" value="Trainer" [routerLink]="['/trainer-register']"
-                            onclick="document.getElementById('regPopup').style.display='none'">
-
-                        <input type="button" class="btn" value="Learner" [routerLink]="['/learner-register']"
-                            onclick="document.getElementById('regPopup').style.display='none'">
-                    </div>
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
+</nav>
 
-    <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-fixed bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">MEAN App</a>
-            <div class="collapse navbar-collapse">
 
-                <ul class="navbar-nav ml-auto navbar-right">
-                    <li>
-                        <input type="button" class="btn mr-3"
-                            onclick="document.getElementById('logInPopup').style.display='block'" value="Log In">
-                    </li>
-                    <li>
-                        <input type="button" class="btn"
-                            onclick="document.getElementById('regPopup').style.display='block'" value="Register">
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- seems not working
+<!-- seems not working
     <script>
     // Get the modal
     var modal1 = document.getElementById('logInPopup');

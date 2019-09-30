@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4>Register here</h4>
+        </div>
+
+        <div class="card-body">
+            <form (ngSubmit)="registerUser()" #form2="ngForm">
+
+                <label>Signup as</label>
+                <select class="dropdown" [(ngModel)]="role" name="role" required>
+                    <option value="Mentor">Mentor</option>
+                    <option value="Learner">Learner</option>
+                </select>
+
+
+                <input type="text" [(ngModel)]="firstName" name="firstName" class="form-control" placeholder="Firstname"
+                    #firstName_ref="ngModel" required>
+                <span *ngIf="firstName_ref.invalid && firstName_ref.dirty">
+                    <span *ngIf="firstName_ref.errors.required" class="error"><small> Field is required </small></span>
+                </span>
+
+                <input type="text" [(ngModel)]="lastName" name="lastName" class="form-control" placeholder="Lastname"
+                #lastName_ref="ngModel"
+                    required>
+                <span *ngIf="lastName_ref.invalid && lastName_ref.dirty">
+                    <span *ngIf="lastName_ref.errors.required" class="error"><small> Field is required </small></span>
+                </span>
+
+                <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Email"
+                #email_ref="ngModel" required>
+                <span *ngIf="email_ref.invalid && email_ref.dirty">
+                    <span *ngIf="email_ref.errors.required" class="error"><small> Field is required </small></span>
+                </span>
+
+                <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password"
+                    #password_ref="ngModel" required>
+                <span *ngIf="password_ref.invalid && password_ref.dirty">
+                    <span *ngIf="password_ref.errors.required" class="error"><small> Field is required </small></span>
+                </span>
+
+
+
+                <button [disabled]="!form2.form.valid">Submit</button>
+
+
+            </form>
+        </div>
+    </div>

@@ -4,27 +4,25 @@ import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-/*
   email;
   password;
   errorMessage = ""
-  */
-  constructor(private http: HttpClient, private _router: Router) { }
+  constructor(private http: HttpClient, private _router : Router) { }
 
   ngOnInit() {
   }
-/*
+
   loginUser() {
     console.log("email: " + this.email);
     console.log("password: " + this.password);
 
-    var body ="&email=" + this.email
+    var body ="email=" + this.email
       + "&password=" + this.password;
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -35,10 +33,11 @@ export class NavbarComponent implements OnInit {
           console.log(result)
           //localStorage.setItem('qualification', 'MCA');
           //localStorage.setItem('amars_data', JSON.stringify({ name: 'R. Amaranathan', place: 'Valasai', mailid: 'amar@hotmail.com' }));
-          if (result == 'Invalid User') {
-            this.errorMessage = "Invalid User"
+          if (result == 'Invalid Credentials') {
+            alert("Invalid Credentials")
           } else {// we will get the JWT token from REST API / Server then we have to store in the Frontend
             localStorage.setItem('token', result);
+            alert("Login Successfull")
             this._router.navigate(['login'])
           }
         },
@@ -48,6 +47,6 @@ export class NavbarComponent implements OnInit {
         }
       )
   }
-  */
+  
 
 }

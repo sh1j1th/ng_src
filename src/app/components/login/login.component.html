@@ -1,0 +1,35 @@
+<div id="logInPopup">
+        
+            <div class="card rounded-0">
+                <div class="card-header">
+                    
+                    <h3>Login</h3>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="loginUser()" #form1="ngForm">
+                        <div class="form-group">
+                            <label>Email Id</label>
+                            <input type="email" [(ngModel)]="email" name="email" #email_ref="ngModel" required
+                                placeholder="Enter Email Id" class="form-control">
+                            <span *ngIf="email_ref.invalid && email_ref.dirty">
+                                <span *ngIf="email_ref.errors.required" class="error"><small> Field is required </small></span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" [(ngModel)]="password" name="password" #password_ref="ngModel" required
+                                placeholder="Enter Password" class="form-control">
+                            <span *ngIf="password_ref.invalid && password_ref.dirty">
+                                <span *ngIf="password_ref.errors.required" class="error"><small> Field is required </small></span>
+                            </span>
+                        </div>
+                        <button [disabled]="!form1.form.valid" class="btn btn-success">Login</button>
+                    </form>
+                    <div>
+                        <h3 class="error">{{errorMessage}}</h3>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+    

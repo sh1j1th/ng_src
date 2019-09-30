@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  private _loginUrl = "http://localhost:3000/api/login"
+  private _loginUrl = "http://localhost:3000/user/check"
   constructor(private http:HttpClient) { }
 
   registerMentor(){}
