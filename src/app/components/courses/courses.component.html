@@ -1,0 +1,50 @@
+<div *ngFor="let course of courses" class="d-flex">
+    <div class="card">
+        <div class="card-header">
+            <h3>{{course.courseTitle}}</h3>
+        </div>
+
+        <div class="card-body">
+            <h4>{{course.courseTrainer}}</h4>
+            <h6><span class="fa fa-star"></span>
+                Rating: {{course.trainerRating}}</h6>
+            <h6><span class="fa fa-calendar"></span>
+                Duration: {{course.courseDuration}} Weeks</h6>
+        </div>
+
+        <div class="card-footer">
+            <h5><span class="fa fa-inr"></span>
+                Price: {{course.cost}}</h5>
+        </div>
+    </div>
+
+
+
+<!--
+    <div class="row" style="background: transparent">
+        <div class="col-lg-4">
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object dp rounded-circle" src="./assets/add-user.svg"
+                        style="width: 80px;height:80px;">
+                </a>
+                <div class="media-body" style=" min-width: 10rem">
+                    
+                        <h5 class="media-heading">{{course.courseTitle}}</h5>
+                    
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="{{course.trainerRating}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width:40%">
+                            {{course.trainerRating}}
+                        </div>
+                    </div>
+                    <hr style="margin:8px ">
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+</div>
+
+

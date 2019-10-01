@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           } else {// we will get the JWT token from REST API / Server then we have to store in the Frontend
             localStorage.setItem('token', result);
             alert("Login Successfull")
-            this._router.navigate(['login'])
+            this._router.navigate(['userdashboard'])
           }
         },
         (error) => {
@@ -50,3 +50,4 @@ export class LoginComponent implements OnInit {
   
 
 }
+ 

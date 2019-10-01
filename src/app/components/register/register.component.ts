@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,34 +17,62 @@ export class RegisterComponent implements OnInit {
   email;
   password;
   message = "";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _router : Router) { }
 
   ngOnInit() {
   }
 
-  registerUser(){
+  registerUser() {
     console.log("email: " + this.email);
     console.log("password: " + this.password);
 
-    var body ="role=" + this.role
-      + "&firstName=" + this.firstName
+    
+
+    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
+    if (this.role == 'user') {
+
+      var body = "firstName=" + this.firstName
       + "&lastName=" + this.lastName
       + "&email=" + this.email
       + "&password=" + this.password;
-    
-    let headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    this.http.post("http://localhost:3000/user/", body, 
-                  {headers: headers, responseType:'text'}).subscribe(
-      (result) => {
-        console.log(result)
-        this.message = "Congratulations, You had successfully registered"
-      },
-      (error) => {
-        console.log(error)
-        this.message = "Error : Backend is running? or Registered already?";
-      }
-    )
+      this.http.post("http://localhost:3000/user/", body,
+        { headers: headers, responseType: 'text' }).subscribe(
+          (result) => {
+            console.log(result)
+            this.message = "Congratulations, You had successfully registered"
+          },
+          (error) => {
+            console.log(error)
+            this.message = "Error : Backend is running? or Registered already?";
+          }
+        )
+
+    } else {
+
+      var body = "firstName=" + this.firstName
+      + "&lastName=" + this.lastName
+      + "&email=" + this.email
+      + "&password=" + this.password
+      + "&yearsOfExperience=" + ''
+      + "&linkedinUrl=" + '';
+      
+      this.http.post("http://localhost:3000/mentor/", body,
+        { headers: headers, responseType: 'text' }).subscribe(
+          (result) => {
+            console.log(result)
+            this.message = "Congratulations, You had successfully registered, please login to visit dashboard"
+            alert(this.message)
+            this._router.navigate([''])
+          },
+          (error) => {
+            console.log(error)
+            this.message = "Error : Backend is running? or Registered already?";
+          }
+        )
+    }
+
+
   }
 }
- 
