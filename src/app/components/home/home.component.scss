@@ -1,0 +1,17 @@
+#jumbotron1{
+    height: 80vh;
+    text-align: center;
+    font-size: 1cm;
+    color: white;
+    //background-size: cover;
+    //background: transparentize($color: #000000, $amount: 0.6);
+}
+.btn{
+    margin: 15px auto 15px auto;
+    font-weight: 500;
+    border-radius: 1.5rem;
+}
+input[type=text]{
+    margin-top: 10rem;
+    border-radius: 1.5rem;
+}

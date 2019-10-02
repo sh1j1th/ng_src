@@ -7,10 +7,10 @@
             <ul class="navbar-nav ml-auto navbar-right">
                 <li>
                         <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                *ngIf="!_authService.loggedIn()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Login
-                                </button>
+                                <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                *ngIf="!_authService.loggedIn()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                value="Login">
+                                  
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" routerLink='/mentorlogin'>Mentor</a>
                                   <a class="dropdown-item" routerLink='/login'>Learner</a>
