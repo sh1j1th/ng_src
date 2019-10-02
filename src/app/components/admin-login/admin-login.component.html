@@ -1,4 +1,4 @@
-<div id="logInPopup">
+<div class="d-flex justify-content-center">
         
         <div class="card rounded-0">
             <div class="card-header">
@@ -23,7 +23,7 @@
                             <span *ngIf="password_ref.errors.required" class="error"><small> Field is required </small></span>
                         </span>
                     </div>
-                    <button [disabled]="!form1.form.valid" class="btn btn-success">Login</button>
+                    <button [disabled]="!form1.form.valid" class="btn btn-success form-control">Login</button>
                 </form>
                 <div>
                     <h3 class="error">{{errorMessage}}</h3>

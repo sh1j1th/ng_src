@@ -4,30 +4,37 @@
         <a class="navbar-brand" href="#">MEAN App</a>
         <div class="collapse navbar-collapse">
 
-            <ul class="navbar-nav ml-auto navbar-right">
+            <ul class="navbar-nav navbar-left">
                 <li>
-                        <div class="dropdown">
-                                <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                *ngIf="!_authService.loggedIn()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                value="Login">
-                                  
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" routerLink='/mentorlogin'>Mentor</a>
-                                  <a class="dropdown-item" routerLink='/login'>Learner</a>
-                                  <a class="dropdown-item" routerLink='/adminlogin'>Admin</a>
-                                </div>
-                              </div>
+                    <input type="button" class="btn btn-info" routerLink='/courses' value="Courses">
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-right">
+
+                <li>
+                    <div class="dropdown">
+                        <input class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            *ngIf="!_authService.loggedIn()" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" value="Login">
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" routerLink='/mentorlogin'>Mentor</a>
+                            <a class="dropdown-item" routerLink='/login'>Learner</a>
+                            <a class="dropdown-item" routerLink='/adminlogin'>Admin</a>
+                        </div>
+                    </div>
                     <!--<input type="button" class="btn mr-3 btn-info" routerLink='/login' value="Log In">-->
                 </li>
                 <li>
-                    <input type="button" class="btn btn-info" 
-                    *ngIf="!_authService.loggedIn()" routerLink='/register' value="Register">
+                    <input type="button" class="btn btn-info" *ngIf="!_authService.loggedIn()" routerLink='/register'
+                        value="Register">
 
-                    <input type="button" class="btn btn-info" 
-                    *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" value="Logout">
+
                 </li>
                 <li>
-
+                    <input type="button" class="btn btn-info" *ngIf="_authService.loggedIn()"
+                        (click)="_authService.logoutUser()" value="Logout">
                 </li>
 
             </ul>

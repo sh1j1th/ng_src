@@ -1,26 +1,26 @@
-<div *ngFor="let course of courses" class="d-flex">
-    <div class="card">
-        <div class="card-header">
-            <h3>{{course.courseTitle}}</h3>
-        </div>
+<div class="container">
+    <div *ngFor="let course of courses" class="d-flex align-items-center">
+        <div class="card">
+            <div class="card-header">
+                <h3>{{course.courseTitle}}</h3>
+            </div>
 
-        <div class="card-body">
-            <h4>{{course.courseTrainer}}</h4>
-            <h6><span class="fa fa-star"></span>
-                Rating: {{course.trainerRating}}</h6>
-            <h6><span class="fa fa-calendar"></span>
-                Duration: {{course.courseDuration}} Weeks</h6>
-        </div>
+            <div class="card-body">
+                <h4>{{course.courseTrainer}}</h4>
+                <h6><span class="fa fa-star"></span>
+                    Rating: {{course.trainerRating}}</h6>
+                <h6><span class="fa fa-calendar"></span>
+                    Duration: {{course.courseDuration}} Weeks</h6>
+            </div>
 
-        <div class="card-footer">
-            <h5><span class="fa fa-inr"></span>
-                Price: {{course.cost}}</h5>
+            <div class="card-footer">
+                <h5><span class="fa fa-inr"></span>
+                    Price: {{course.cost}}</h5>
+            </div>
         </div>
     </div>
 
-
-
-<!--
+    <!--
     <div class="row" style="background: transparent">
         <div class="col-lg-4">
             <div class="media">
@@ -46,5 +46,3 @@
 -->
 
 </div>
-
-
