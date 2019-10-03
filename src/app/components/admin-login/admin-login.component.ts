@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdminLoginComponent implements OnInit {
 
-  email;
+  username;
   password;
   errorMessage = ""
   constructor(private http: HttpClient, private _router : Router) { }
@@ -19,10 +19,10 @@ export class AdminLoginComponent implements OnInit {
   }
 
   loginUser() {
-    console.log("email: " + this.email);
+    console.log("username: " + this.username);
     console.log("password: " + this.password);
 
-    var body ="email=" + this.email
+    var body ="username=" + this.username
       + "&password=" + this.password;
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });

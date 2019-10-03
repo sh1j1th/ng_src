@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   lastName;
   email;
   password;
+  status;
   message = "";
   constructor(private http: HttpClient, private _router : Router) { }
 
@@ -35,13 +36,15 @@ export class RegisterComponent implements OnInit {
       var body = "firstName=" + this.firstName
       + "&lastName=" + this.lastName
       + "&email=" + this.email
-      + "&password=" + this.password;
+      + "&password=" + this.password
+      + "&status=" + "Active";
 
       this.http.post("http://localhost:3000/user/", body,
         { headers: headers, responseType: 'text' }).subscribe(
           (result) => {
             console.log(result)
-            this.message = "Congratulations, You had successfully registered"
+            alert("Please login to continue")
+            this._router.navigate(['/login'])
           },
           (error) => {
             console.log(error)
@@ -56,15 +59,16 @@ export class RegisterComponent implements OnInit {
       + "&email=" + this.email
       + "&password=" + this.password
       + "&yearsOfExperience=" + ''
-      + "&linkedinUrl=" + '';
+      + "&linkedinUrl=" + ''
+      + "&status=" + "Active";
       
       this.http.post("http://localhost:3000/mentor/", body,
         { headers: headers, responseType: 'text' }).subscribe(
           (result) => {
             console.log(result)
-            this.message = "Congratulations, You had successfully registered, please login to visit dashboard"
-            alert(this.message)
-            this._router.navigate([''])
+            //this.message = "Congratulations, You had successfully registered, please login to visit dashboard"
+            alert("Please login to continue")
+            this._router.navigate(['/mentorlogin'])
           },
           (error) => {
             console.log(error)

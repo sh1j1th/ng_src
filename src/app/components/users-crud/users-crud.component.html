@@ -1,0 +1,24 @@
+<div class="container">
+<h1>User List</h1>
+<table  class="table table-striped table-bordered table-hover">
+<tr>
+    <th>_id</th>
+    <th>Email Id</th>
+    <th>Status</th>
+    <th colspan="3">CRUD Ops</th>
+</tr>
+  
+
+    
+    <tr *ngFor="let user of users">
+        <td>{{ user._id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.status }}</td>    
+        <td><button class="btn btn-warning btn-sm" (click)='blockUser(user._id)'>Block</button></td>
+        <td><button class="btn btn-success btn-sm" (click)='unBlockUser(user._id)'>Unblock</button></td>
+        <td><button class="btn btn-danger btn-sm" (click)='deleteUser(user._id)'>Delete</button></td>
+    </tr>
+
+
+</table>
+</div> 

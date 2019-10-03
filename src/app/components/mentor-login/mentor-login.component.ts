@@ -13,7 +13,7 @@ export class MentorLoginComponent implements OnInit {
   email;
   password;
   errorMessage = ""
-  constructor(private http: HttpClient, private _router : Router) { }
+  constructor(private http: HttpClient, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -22,7 +22,7 @@ export class MentorLoginComponent implements OnInit {
     console.log("email: " + this.email);
     console.log("password: " + this.password);
 
-    var body ="email=" + this.email
+    var body = "email=" + this.email
       + "&password=" + this.password;
 
     let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -35,7 +35,11 @@ export class MentorLoginComponent implements OnInit {
           //localStorage.setItem('amars_data', JSON.stringify({ name: 'R. Amaranathan', place: 'Valasai', mailid: 'amar@hotmail.com' }));
           if (result == 'Invalid Credentials') {
             alert("Invalid Credentials")
-          } else {// we will get the JWT token from REST API / Server then we have to store in the Frontend
+          } else if (result == 'User blocked') {
+            alert("Your credentials have been blocked, please contact Admin")
+          }
+
+          else {// we will get the JWT token from REST API / Server then we have to store in the Frontend
             localStorage.setItem('token', result);
             alert("Login Successfull")
             this._router.navigate(['mentordashboard'])
@@ -47,8 +51,7 @@ export class MentorLoginComponent implements OnInit {
         }
       )
   }
-  
+
 
 
 }
- 

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="d-flex justify-content-center">
     <div class="card">
         <div class="card-header">
             <h4>Register here</h4>
@@ -8,7 +8,7 @@
             <form (ngSubmit)="registerUser()" #form2="ngForm">
 
                 <label>Signup as</label>
-                <select class="dropdown" [(ngModel)]="role" name="role" required>
+                <select class="dropdown form-group" [(ngModel)]="role" name="role" required>
                     <option value="mentor">Mentor</option>
                     <option value="user">Learner</option>
                 </select>
@@ -40,9 +40,9 @@
                 </span>
 
 
-            <div class="card-footer">
-                <button [disabled]="!form2.form.valid">Submit</button>
-            </div>
+            
+                <button [disabled]="!form2.form.valid" class="btn btn-success form-control">Submit</button>
+            
             </form>
         </div>
     </div>

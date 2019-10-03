@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.scss']
+  selector: 'app-course-crud',
+  templateUrl: './course-crud.component.html',
+  styleUrls: ['./course-crud.component.scss']
 })
-export class AdminDashboardComponent implements OnInit {
+export class CourseCrudComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
   error_message = '';
-  users = [];
-  listUser = function () {
-    this.http.get("http://localhost:3000/user/table").subscribe(
+  
+  courseLists = []
+  listCourse = function () {
+    this.http.get("http://localhost:3000/courseList/").subscribe(
       (result: any[]) => {
-        this.users = result;
-        console.log(this.users)
+        this.courseLists = result;
+        console.log(this.courseLists)
         this.error_message = ""
       },
       (error) => {
@@ -25,12 +26,8 @@ export class AdminDashboardComponent implements OnInit {
     )
   }
 
-
-
-
   ngOnInit() {
-   // this.listUser();
-
+    this.listCourse();
   }
 
 }

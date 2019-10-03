@@ -9,6 +9,8 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { MentorDashboardComponent } from './components/mentor-dashboard/mentor-dashboard.component';
 import { MentorLoginComponent } from './components/mentor-login/mentor-login.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { UsersCrudComponent } from './components/users-crud/users-crud.component';
+import { CourseCrudComponent } from './components/course-crud/course-crud.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent},
   { path: 'admindashboard', component: AdminDashboardComponent},
   { path: 'userdashboard', component: UserDashboardComponent},
-  { path: 'mentordashboard', component: MentorDashboardComponent}
+  { path: 'mentordashboard', component: MentorDashboardComponent},
+  { path: 'listusers', component: UsersCrudComponent  },
+  { path: 'listcourses', component: CourseCrudComponent  }
 ];
 
 @NgModule({

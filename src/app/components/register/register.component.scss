@@ -1,0 +1,34 @@
+.card{
+    margin-top: 3rem;
+    border-color: black;
+    border: none;
+}
+.card-header{
+    text-align: center;
+    //border-radius: 1rem;
+    background-color: darkslategrey;
+}
+label{
+    color: darkslategrey;
+}
+h4{
+    font-weight: 600;
+    color: white;
+}
+input{
+   border-top: none;
+   border-left: none;
+   border-right: none;
+}
+input:hover,input:focus{
+    background: transparentize($color: grey, $amount: 0.8)
+}
+.error{
+    color: red;
+}
+.btn{
+    margin-top: 15px;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
