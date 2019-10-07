@@ -35,7 +35,7 @@ export class MentorLoginComponent implements OnInit {
           //localStorage.setItem('amars_data', JSON.stringify({ name: 'R. Amaranathan', place: 'Valasai', mailid: 'amar@hotmail.com' }));
           if (result == 'Invalid Credentials') {
             alert("Invalid Credentials")
-          } else if (result == 'User blocked') {
+          } else if (result == 'mentor blocked') {
             alert("Your credentials have been blocked, please contact Admin")
           }
 
@@ -46,7 +46,7 @@ export class MentorLoginComponent implements OnInit {
           }
         },
         (error) => {
-          this.errorMessage = "Error occured, check whether Backend is running!";
+          alert("Error occured, check whether Backend is running!");
           console.log(error)
         }
       )

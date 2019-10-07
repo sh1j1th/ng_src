@@ -1,15 +1,23 @@
 <!-- Side navigation -->
-<div class="sidenav">
-  <a routerLink='/listusers'>Users</a>
-  <a href="#">Mentors</a>
-  <a href="#">Payment history</a>
-  <a routerLink='/listcourses'>courseLists</a>
+<div class="row">
+    <div class="col-md-2">
+        <div class="sidenav">
+            <a routerLink='/listusers'>Users</a>
+            <a routerLink='/listmentors'>Mentors</a>
+            <a href="#">Payment history</a>
+            <a routerLink='/listcourses'>courseLists</a>
+        </div>
+    </div>
 
+    <div class="col-md-11">
+        <router-outlet></router-outlet>
+    </div>
 </div>
- 
+
+
 <!-- Page content -->
 <div class="main">
 
- <!--to list all courseList from courseLists and add new courseList/technology-->
-  
+    <!--to list all courseList from courseLists and add new courseList/technology-->
+
 </div>

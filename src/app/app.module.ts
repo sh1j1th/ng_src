@@ -18,6 +18,7 @@ import { MentorDashboardComponent } from './components/mentor-dashboard/mentor-d
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { UsersCrudComponent } from './components/users-crud/users-crud.component';
 import { CourseCrudComponent } from './components/course-crud/course-crud.component';
+import { MentorsCrudComponent } from './components/mentors-crud/mentors-crud.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CourseCrudComponent } from './components/course-crud/course-crud.compon
     MentorDashboardComponent,
     UserDashboardComponent,
     UsersCrudComponent,
-    CourseCrudComponent
+    CourseCrudComponent,
+    MentorsCrudComponent
   ],
   imports: [
     BrowserModule,

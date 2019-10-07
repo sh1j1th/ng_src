@@ -2,34 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-users-crud',
-  templateUrl: './users-crud.component.html',
-  styleUrls: ['./users-crud.component.scss']
+  selector: 'app-mentors-crud',
+  templateUrl: './mentors-crud.component.html',
+  styleUrls: ['./mentors-crud.component.scss']
 })
-export class UsersCrudComponent implements OnInit {
+export class MentorsCrudComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
   error_message='';
-  users = [];
-  listUser = function() {
-    this.http.get("http://localhost:3000/user/").subscribe(
+  mentors = [];
+  listMentor = function() {
+    this.http.get("http://localhost:3000/mentor/").subscribe(
       (result : any[]) => {
-        this.users = result;
-        console.log(this.users)
+        this.mentors = result;
+        console.log(this.mentors)
         this.error_message = ""
       },
       (error) => {
         alert("Error occured, check whether Backend is running!");
+        console.log(error)
       }
     )
   }
 
-  deleteUser = function(id) {
+  deleteMentor = function(id) {
     console.log(id)
-    this.http.delete("http://localhost:3000/user/"+id).subscribe(
+    this.http.delete("http://localhost:3000/mentor/"+id).subscribe(
       (result : any[]) => {
-        this.users = result;
-        console.log(this.users)
+        this.Mentors = result;
+        console.log(this.Mentors)
         this.error_message = ""
         
       },
@@ -40,12 +41,12 @@ export class UsersCrudComponent implements OnInit {
     )
   }
 
-  unBlockUser = function(id) {
+  unBlockMentor = function(id) {
     console.log(id)
-    this.http.put("http://localhost:3000/user/unblock/"+id).subscribe(
+    this.http.put("http://localhost:3000/mentor/unblock/"+id).subscribe(
       (result : any[]) => {
-        this.users = result;
-        console.log(this.users)
+        this.Mentors = result;
+        console.log(this.Mentors)
         this.error_message = ""
         
       },
@@ -56,12 +57,12 @@ export class UsersCrudComponent implements OnInit {
     )
   }
 
-  blockUser = function(id) {
+  blockMentor = function(id) {
     console.log(id)
-    this.http.put("http://localhost:3000/user/block/"+id).subscribe(
+    this.http.put("http://localhost:3000/mentor/block/"+id).subscribe(
       (result : any[]) => {
-        this.users = result;
-        console.log(this.users)
+        this.Mentors = result;
+        console.log(this.Mentors)
         this.error_message = ""
         
       },
@@ -73,10 +74,10 @@ export class UsersCrudComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listUser();
-    //this.blockUser();
-    //this.deleteUser();
+    this.listMentor();
+    //this.blockMentor();
+    //this.deleteMentor();
   }
 
+
 }
- 

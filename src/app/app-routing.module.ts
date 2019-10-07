@@ -11,6 +11,7 @@ import { MentorLoginComponent } from './components/mentor-login/mentor-login.com
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { UsersCrudComponent } from './components/users-crud/users-crud.component';
 import { CourseCrudComponent } from './components/course-crud/course-crud.component';
+import { MentorsCrudComponent } from './components/mentors-crud/mentors-crud.component';
 
 
 const routes: Routes = [
@@ -20,11 +21,17 @@ const routes: Routes = [
   { path: 'adminlogin', component: AdminLoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'courses', component: CoursesComponent},
-  { path: 'admindashboard', component: AdminDashboardComponent},
+  { path: 'admindashboard', component: AdminDashboardComponent,
+children:[
+  { path: 'listusers', component: UsersCrudComponent },
+  { path: 'listcourses', component: CourseCrudComponent }
+] 
+},
   { path: 'userdashboard', component: UserDashboardComponent},
   { path: 'mentordashboard', component: MentorDashboardComponent},
-  { path: 'listusers', component: UsersCrudComponent  },
-  { path: 'listcourses', component: CourseCrudComponent  }
+  { path: 'listusers', component: UsersCrudComponent },
+  { path: 'listmentors', component: MentorsCrudComponent },
+  { path: 'listcourses', component: CourseCrudComponent }
 ];
 
 @NgModule({
