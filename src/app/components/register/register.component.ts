@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
           },
           (error) => {
             console.log(error)
-            this.message = "Error : Backend is running? or Registered already?";
+            alert("Error occured, check whether Backend is running!");
           }
         )
 
@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
           },
           (error) => {
             console.log(error)
-            this.message = "Error : Backend is running? or Registered already?";
+            alert("Error occured, check whether Backend is running!");
           }
         )
     }

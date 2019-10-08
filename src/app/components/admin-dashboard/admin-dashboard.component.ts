@@ -19,7 +19,7 @@ export class AdminDashboardComponent implements OnInit {
         this.error_message = ""
       },
       (error) => {
-        this.error_message = "Error occured, check whether Backend is running!";
+        alert("Error occured, check whether Backend is running!");
         console.log(error)
       }
     )
